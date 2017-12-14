@@ -4,14 +4,13 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-14 5:28:00
+ * Modified By: 2017-12-14 8:03:20
  * -----
  * Copyright (c) 2017 魏巍
  * ------
  * All shall be well and all shall be well and all manner of things shall be well.
  * We're doomed!
  */
-
 <template>
     <div>
         <b-navbar toggleable="md" type="dark" variant="dark">
