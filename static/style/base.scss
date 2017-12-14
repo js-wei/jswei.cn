@@ -1,0 +1,48 @@
+/**
+ * File: f:\vue\jswei.cn\public\style\base.scss
+ * Created Date: 2017-12-14 4:39:25
+ * Author: 魏巍
+ * -----
+ * Last Modified: 魏巍
+ * Modified By: 2017-12-14 4:41:10
+ * -----
+ * Copyright (c) 2017 魏巍
+ * ------
+ * All shall be well and all shall be well and all manner of things shall be well.
+ * We're doomed!
+ */
+
+html{
+    font-size:62.5%;
+}
+
+$fontFamily:'Lato', sans-serif;
+$fontSize:12px;
+$fontColor:#111;
+$baseColor:#fff #9d9d9d #e6522c  #111  !default;
+$square:0px 5px 10px 15px 20px 25px;
+$navbar:60px !default;
+$headings: (0: darkred, 1:darkgreen, 2: #e6522c);
+::selection{
+    color:nth($baseColor,1);
+    background:nth($baseColor,3);
+}
+.clear-navbar-fixed {
+    margin-top:$navbar*1.8;
+}
+.clear-square{
+    margin:0px;
+    padding:0px;
+}
+table{
+    border:1px solid lighten(nth($baseColor,2),30%);
+    width:100%;
+    tr{
+    td,th{
+        line-height:50px;
+        padding-left:10px;
+        border:1px solid lighten(nth($baseColor,2),30%);
+    }
+    }
+}
+
