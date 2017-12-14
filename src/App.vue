@@ -16,13 +16,5 @@ export default {
 </script>
 
 <style lang="scss">
-  input{
-    outline:none;
-    box-shadow:none;
-    
-  }
-  input:focus{
-    outline:none;
-    box-shadow:none;
-  }
+  
 </style>
