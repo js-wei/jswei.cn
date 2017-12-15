@@ -5,11 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
+import "animate.css/animate.min.css"
 import Filters from './filters/index'
 //vue-router
 import VueRouter from 'vue-router'
 import routes from './router.config.js'
+import _ from 'lodash'
 
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)

@@ -16,5 +16,18 @@ export default {
 </script>
 
 <style lang="scss">
-  
+  html {
+    font-size: 62.5%;
+  }
+  *:focus {
+    outline: none;
+  }
+  .carousel-caption{
+    bottom: 25%;
+  }
+  .carousel-indicators{
+    li{
+      cursor: pointer;
+    }
+  }
 </style>

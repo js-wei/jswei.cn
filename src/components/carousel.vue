@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-15 1:05:28
+ * Modified By: 2017-12-15 11:35:33
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -12,96 +12,68 @@
  * We're doomed!
  */
 
-<template>
+ <template>
   <div>
-    <swiper :options="swiperOption">
-        <div class="parallax-bg" slot="parallax-bg" data-swiper-parallax="-23%"></div>
-        <swiper-slide>
-          <div class="title" data-swiper-parallax="-100">Slide 1</div>
-          <br>
-          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-          <div class="text" data-swiper-parallax="-300">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="title" data-swiper-parallax="-100">Slide 2</div>
-          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-          <div class="text" data-swiper-parallax="-300">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="title" data-swiper-parallax="-100">Slide 3</div>
-          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
-          <div class="text" data-swiper-parallax="-300">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
-          </div>
-        </swiper-slide>
-        <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
-        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-      </swiper>
+    <b-carousel
+      controls
+      indicators
+      :interval="interval"
+    >
+      <b-carousel-slide v-for="(item,index) in carouselList" :key="index">
+        <h1 class="animated" :class="_anmited()">{{item.title}}</h1>
+        <p class="animated" :class="_anmited()">{{item.descriptiom}}</p>
+      </b-carousel-slide>
+    </b-carousel>
   </div>
 </template>
 
 <script>
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  export default {
-    data() {
-      return {
-        swiperOption: {
-          speed: 600,
-          parallax: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+export default {
+  data () {
+    return {
+      anmited:['zoomIn','fadeInUpBig','bounceInUp','rotateIn','rollIn']
+    }
+  },
+  props: {
+    carouselList: {
+      type: Array,
+      default:[] 
+    },
+    interval:Number,
+    default:4e3
+  },
+  methods: {
+    _anmited() {
+      let i = _.random(0,this.anmited.length-1);
+      return this.anmited[i];
+    },
+  },
+  mounted(){
+    let _documet = document.querySelector('.navbar');
+    document.querySelector('.carousel').style.marginTop= _documet.offsetHeight +'px';
+    console.log(this._anmited());
+  }
+}
+</script>
+<style lang="scss" scoped>
+  @import 'static/style/base';
+  .carousel{
+    .carousel-inner{
+      .carousel-item{
+        height:320px;
+        background-color: nth($baseColor,3);
+        background-image: url('/static/images/jumbotron-background-cb04e0f2d6d.png');
+        text-shadow: rgba(0,0,0,0.2) 0px 2px 0px;
+        .carousel-caption{
+          h1{
+            padding-bottom:5px;
+            font-size:2.2rem;
+          }       
+          p{
+            font-size:1.5rem;
           }
         }
       }
-    },
-    components: {
-        swiper,
-        swiperSlide
-    },
-  }
-</script>
-
-<style scoped>
-  .swiper-slide {
-    font-size: 18px;
-    color:#fff;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 40px 60px;
-    background-color: transparent!important;
-    justify-content: space-around!important;
-  }
-  .parallax-bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 130%;
-    height: 100%;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center;
-    background-image: url(/static/images/surmon-1.jpg);
-  }
-  .swiper-slide .title {
-    font-size: 41px;
-    font-weight: 300;
-  }
-  .swiper-slide .subtitle {
-    font-size: 21px;
-  }
-  .swiper-slide .text {
-    font-size: 14px;
-    max-width: 400px;
-    line-height: 1.3;
+    }
   }
 </style>
