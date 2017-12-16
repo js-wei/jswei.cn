@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-15 11:35:33
+ * Modified By: 2017-12-16 11:10:43
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -17,8 +17,7 @@
     <b-carousel
       controls
       indicators
-      :interval="interval"
-    >
+      :interval="interval">
       <b-carousel-slide v-for="(item,index) in carouselList" :key="index">
         <h1 class="animated" :class="_anmited()">{{item.title}}</h1>
         <p class="animated" :class="_anmited()">{{item.descriptiom}}</p>
@@ -31,7 +30,11 @@
 export default {
   data () {
     return {
-      anmited:['zoomIn','fadeInUpBig','bounceInUp','rotateIn','rollIn']
+      anmited:[
+        'zoomIn','fadeInUpBig','bounceInUp',
+        'rotateIn','rollIn','fadeInUp','fadeInUpBig',
+        'jackInTheBox'
+      ]
     }
   },
   props: {
@@ -51,7 +54,6 @@ export default {
   mounted(){
     let _documet = document.querySelector('.navbar');
     document.querySelector('.carousel').style.marginTop= _documet.offsetHeight +'px';
-    console.log(this._anmited());
   }
 }
 </script>
@@ -60,7 +62,7 @@ export default {
   .carousel{
     .carousel-inner{
       .carousel-item{
-        height:320px;
+        min-height:350px;
         background-color: nth($baseColor,3);
         background-image: url('/static/images/jumbotron-background-cb04e0f2d6d.png');
         text-shadow: rgba(0,0,0,0.2) 0px 2px 0px;

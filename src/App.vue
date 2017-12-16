@@ -9,7 +9,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+     
     }
   }
 }
@@ -23,7 +23,7 @@ export default {
     outline: none;
   }
   .carousel-caption{
-    bottom: 25%;
+    bottom: 30%;
   }
   .carousel-indicators{
     li{

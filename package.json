@@ -15,8 +15,9 @@
     "bootstrap-vue": "^1.2.0",
     "lodash": "^4.17.4",
     "popper.js": "^1.12.9",
+    "qrcanvas-vue": "^1.1.0",
     "vue": "^2.5.3",
-    "vue-awesome-swiper": "^3.0.6",
+    "vue-awesome-for-toolbar": "^2.3.2",
     "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1"
   },

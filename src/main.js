@@ -12,6 +12,12 @@ import VueRouter from 'vue-router'
 import routes from './router.config.js'
 import _ from 'lodash'
 
+import 'vue-awesome-for-toolbar/icons'
+import Icon from 'vue-awesome-for-toolbar/components/Icon.vue'
+
+// globally (in your main .js file)
+Vue.component('icon', Icon)
+
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)

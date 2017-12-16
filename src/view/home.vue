@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-15 11:43:08
+ * Modified By: 2017-12-16 10:55:35
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -13,32 +13,14 @@
  */
 <template>
     <div>
-        <b-navbar toggleable="md" fixed="top" type="dark" variant="dark">
-            <b-navbar-brand href="/">
-               <b-img src="/static/images/10104372.gif" rounded="circle" fluid alt="魏巍" />
-               <span>魏巍</span>
-            </b-navbar-brand>
-            <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-            <b-collapse is-nav id="nav_collapse">
-                <b-navbar-nav class="ml-auto">
-                    <b-nav-item :to="'/'">首页</b-nav-item>
-                </b-navbar-nav>
-                <!-- Right aligned nav items -->
-                <b-navbar-nav >
-                    <b-nav-form action="javascript:;">
-                        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="搜索"/>
-                        <b-button size="sm" class="my-2 my-sm-0" type="submit">搜索</b-button>
-                    </b-nav-form>
-                </b-navbar-nav>
-            </b-collapse>
-        </b-navbar>
+        <v-header></v-header>
         <v-carousel :carouselList="carouselList"></v-carousel>
     </div>
 </template>
 
 <script>
+    import vHeader from '../components/header.vue'
     import vCarousel from '../components/carousel.vue'
-    
     export default {
         data() {
             return {
@@ -57,49 +39,13 @@
         },
         components: {
             vCarousel,
+            vHeader
         },
     }
 </script>
 
 <style lang="scss" scoped>
-    @import 'static/style/base';
-    nav.navbar{
-        .navbar-brand{
-            position:relative;
-            width:35px;
-            &:hover{
-                color:nth($baseColor,3);
-            }
-            span{
-                position: absolute;
-                top:.9rem;
-                margin-left:5px;
-                font-size:1.2rem;
-            }
-        }
-        ul.navbar-nav{
-            li.nav-item{
-                a.nav-link{
-                    font-size: 1.8rem;
-                    display: block;
-                    color:nth($baseColor,1);
-                    text-transform:uppercase;
-                    &:hover{
-                        color:nth($baseColor,3);
-                    }
-                }
-            }
-            form.form-inline{
-                button{
-                    cursor: pointer;
-                    &:hover{
-                        color:nth($baseColor,3);
-                    }
-                }
-            }
-        }
-    }
-        
+    
 </style>
 
 
