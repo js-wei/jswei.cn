@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-17 1:27:59
+ * Modified By: 2017-12-17 9:28:55
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -21,28 +21,36 @@
             </b-navbar-brand>
             <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_collapse">
-                <b-navbar-nav class="ml-auto">
-                    <b-nav-item :to="'/'">首页</b-nav-item>
-                </b-navbar-nav>
-                <!-- Right aligned nav items -->
                 <b-navbar-nav>
+                    <b-nav-item :to="'/'">首页</b-nav-item>
+                    <b-nav-item-dropdown text="网站开发" right>
+                        <b-dropdown-item href="#">HTML</b-dropdown-item>
+                        <b-dropdown-item href="#">CSS</b-dropdown-item>
+                        <b-dropdown-item href="#">JAVASCRIPT</b-dropdown-item>
+                    </b-nav-item-dropdown>
+                </b-navbar-nav>
+                <b-navbar-nav class="ml-auto">
                     <b-nav-form action="javascript:;">
                         <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="搜索"/>
                         <b-button size="sm" class="my-2 my-sm-0" type="submit">搜索</b-button>
                     </b-nav-form>
                 </b-navbar-nav>
-                <b-navbar-nav>
-                    <ul class="icons">
-                        <li>
-                            <icon name="github"></icon>   
-                        </li>
-                        <li>
-                            <icon name="phone"></icon>   
-                        </li>
-                        <li @mouseenter="showQrcode" @mouseleave="showQrcode">
-                            <icon name="qrcode"></icon>   
-                        </li>
-                    </ul>
+                <b-navbar-nav class="navbar-icons">
+                    <li>
+                        <a href="https://github.com/js-wei" target="_balnk">
+                            <icon name="github"></icon>
+                        </a>   
+                    </li>
+                    <li>
+                        <a href="tel://13584866592">
+                            <icon name="phone"></icon>
+                        </a>   
+                    </li>
+                    <li @mouseenter="showQrcode" @mouseleave="showQrcode">
+                        <a href="javascript:;">
+                            <icon name="qrcode"></icon>
+                        </a>   
+                    </li>
                     <v-qrcode :Options="Options" :showQrcode="isShowQrcode"></v-qrcode>
                 </b-navbar-nav>
             </b-collapse>
@@ -59,7 +67,8 @@
                 isShowQrcode:false,
                 Options:{
                     data:'https://jswei.cn',
-                    foreground:'#000000',
+                    //background:'#e6522c',
+                    //foreground:'#fffffff',
                     size:100,
                     logo:{
                         image:'/static/images/10104373.png'
@@ -80,62 +89,62 @@
 
 <style lang="scss" scoped>
     @import 'static/style/base';
-    nav.navbar{
-        .navbar-brand{
-            position:relative;
-            width:35px;
-            &:hover{
-                color:nth($baseColor,3);
-            }
-            span{
-                position: absolute;
-                top:.9rem;
-                margin-left:5px;
-                font-size:1.2rem;
-            }
-        }
-        ul.navbar-nav{
-            li.nav-item{
-                a.nav-link{
-                    font-size: 1.8rem;
-                    display: block;
-                    color:nth($baseColor,1);
-                    text-transform:uppercase;
-                    &:hover{
-                        color:nth($baseColor,3);
-                    }
+    .header{
+        .navbar{
+            .navbar-brand{
+                position:relative;
+                width:35px;
+                &:hover{
+                    color:nth($baseColor,3);
                 }
-            }
-            form.form-inline{
-                button{
-                    cursor: pointer;
-                    &:hover{
-                        color:nth($baseColor,3);
-                    }
-                }
-            }
-            
-        }
-        .navbar-collapse{
-            .navbar-nav{
-                position: relative;
-                ul.icons{
-                   padding-left:0;
-                   li{
-                       float: left;
-                       margin-left:10px;
-                       .fa-icon{
-                            display: inline-block;
-                            color:nth($baseColor,1);
-                            margin-left:10px;
-                            cursor: pointer;
-                        }
-                   }
-                }
-                .qrcanvas{
+                span{
                     position: absolute;
-                    top:30px;
-                    right:15px;
+                    top:.9rem;
+                    margin-left:5px;
+                    font-size:1.2rem;
+                }
+            }
+            .navbar-collapse{
+                .navbar-nav{
+                    position: relative;
+                    margin-left:5rem;
+                    li.nav-item{
+                      a.nav-link{
+                          color:nth($baseColor,1);
+                          font-size:1.5rem;
+                          span{
+                              font-size:1.5rem;
+                          }
+                      }
+                    }
+                    form{
+                        button{
+                            cursor: pointer;
+                            &:hover{
+                                color:nth($baseColor,3);
+                            }
+                        }
+                    }
+                    //icons
+                    &.navbar-icons{
+                       margin-left:.8rem;
+                       li{
+                           a{
+                               color:nth($baseColor,1);
+                               font-size:1.2rem;
+                               padding:0 5px 0 5px;
+                               &:hover{
+                                   opacity:.5;
+                               }
+                           }
+                       }
+                    }
+                    //qrcode
+                    .qrcanvas{
+                        position: absolute;
+                        top:30px;
+                        right:15px;
+                    }
                 }
             }
         }
