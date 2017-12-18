@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-18 3:49:28
+ * Modified By: 2017-12-19 12:01:38
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -21,7 +21,7 @@
             </b-navbar-brand>
             <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_collapse">
-                <b-navbar-nav>
+                <b-navbar-nav class="mr-auto">
                     <b-nav-item :to="'/'">首页</b-nav-item>
                     <b-nav-item-dropdown text="网站开发">
                         <b-dropdown-item href="#">HTML</b-dropdown-item>
@@ -29,7 +29,7 @@
                         <b-dropdown-item href="#">JAVASCRIPT</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
-                <b-navbar-nav class="ml-auto">
+                <b-navbar-nav>
                     <b-nav-form action="javascript:;">
                         <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="搜索"/>
                         <b-button size="sm" class="my-2 my-sm-0" type="submit">搜索</b-button>
@@ -66,7 +66,7 @@
                 keywords:'',
                 isShowQrcode:false,
                 Options:{
-                    data:'https://jswei.cn',
+                    data:'https://n.jswei.cn',
                     //background:'#e6522c',
                     //foreground:'#fffffff',
                     size:100,
@@ -108,6 +108,7 @@
                 ul.navbar-nav{
                     position: relative;
                     margin-left:5rem;
+                    float: left;
                     form{
                         button{
                             cursor: pointer;
@@ -119,6 +120,8 @@
                     //icons
                     &.navbar-icons{
                        margin-left:.8rem;
+                       text-align:right;
+                       width:10%;
                        li{
                            a{
                                color:nth($baseColor,1);
@@ -140,5 +143,4 @@
             }
         }
     }
-    
 </style>

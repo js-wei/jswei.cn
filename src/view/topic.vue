@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-18 9:00:54
+ * Modified By: 2017-12-18 11:27:58
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -14,13 +14,12 @@
 
 <template>
     <b-container class="topic">
-        <remote src="/static/plug/social-share.js/dist/js/social-share.min.js"></remote>
         <v-header></v-header>
         <b-row>
-            <b-col style="padding-left:0;"><b-breadcrumb :items="items"></b-breadcrumb></b-col>
+            <b-col style="padding-left:0;padding-right:0px;"><b-breadcrumb :items="items"></b-breadcrumb></b-col>
         </b-row>
         <b-row>
-            <b-col cols="9" lg="9" md="9"  sm="12" class="article">
+            <b-col lg="9" md="9" sm="12" class="article">
                 <h1>Python 变量类型</h1>
                 <div class="tools">
                     <icon class="icon-item" name="eye"></icon><span class="icon-item-number">22</span>
@@ -49,14 +48,15 @@
                     </ul>
                 </nav>
             </b-col>
-            <b-col cols="3" lg="3" md="3"  sm="12">22</b-col>
+            <b-col lg="3" md="3" sm="12">22</b-col>
         </b-row>
+        <v-footer></v-footer>
     </b-container>
 </template>
 
 <script>
     import vHeader from '../components/header.vue'
-    
+    import vFooter from '../components/footer.vue'
     export default {
         data() {
             return {
@@ -74,6 +74,7 @@
         },
         components: {
             vHeader,
+            vFooter,
             'remote': {
                 render(createElement) {
                     if(this.src.indexOf('.css')>-1){
@@ -104,6 +105,7 @@
     .topic{
         padding-top:80px;
         .breadcrumb{
+            box-shadow:2px -2px 5px #eee;
             .breadcrumb-item{
                text-transform:uppercase;
             }

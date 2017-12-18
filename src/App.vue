@@ -7,7 +7,6 @@
 <script>
 import Bus from './store/bus'
 import vLoding from './components/loding.vue'
-
 export default {
   name: 'app',
   data () {
@@ -28,8 +27,7 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
+<style lang="scss"> 
   html {
     font-size: 62.5%;
   }
