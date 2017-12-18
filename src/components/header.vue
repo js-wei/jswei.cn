@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-17 9:28:55
+ * Modified By: 2017-12-18 3:49:28
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -23,7 +23,7 @@
             <b-collapse is-nav id="nav_collapse">
                 <b-navbar-nav>
                     <b-nav-item :to="'/'">首页</b-nav-item>
-                    <b-nav-item-dropdown text="网站开发" right>
+                    <b-nav-item-dropdown text="网站开发">
                         <b-dropdown-item href="#">HTML</b-dropdown-item>
                         <b-dropdown-item href="#">CSS</b-dropdown-item>
                         <b-dropdown-item href="#">JAVASCRIPT</b-dropdown-item>
@@ -99,24 +99,15 @@
                 }
                 span{
                     position: absolute;
-                    top:.9rem;
+                    top:1.2rem;
                     margin-left:5px;
-                    font-size:1.2rem;
+                    font-size:.8rem;
                 }
             }
             .navbar-collapse{
-                .navbar-nav{
+                ul.navbar-nav{
                     position: relative;
                     margin-left:5rem;
-                    li.nav-item{
-                      a.nav-link{
-                          color:nth($baseColor,1);
-                          font-size:1.5rem;
-                          span{
-                              font-size:1.5rem;
-                          }
-                      }
-                    }
                     form{
                         button{
                             cursor: pointer;
@@ -149,4 +140,5 @@
             }
         }
     }
+    
 </style>

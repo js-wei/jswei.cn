@@ -53,7 +53,14 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    proxy:{
+      '/api': {
+          target: 'http://www.n.jswei.cn/',  // 接口域名
+          changeOrigin: true,  //是否跨域
+          secure:false
+      }
+    }
   },
   performance: {
     hints: false

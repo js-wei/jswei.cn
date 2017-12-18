@@ -13,12 +13,16 @@
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "^1.2.0",
+    "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "popper.js": "^1.12.9",
     "qrcanvas-vue": "^1.1.0",
+    "social-share.js": "^1.0.16",
     "vue": "^2.5.3",
+    "vue-alert-loading": "^3.0.3",
     "vue-awesome-for-toolbar": "^2.3.2",
     "vue-axios": "^2.0.2",
+    "vue-clazy-load": "^0.3.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
