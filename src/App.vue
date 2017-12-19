@@ -60,7 +60,14 @@ export default {
     }
   }
   .dropdown-menu{
-    background-color: #343a40;
+     background-color:#212529;
+     &:focus,&:hover{
+        color:#fff;
+        background-color:#212529;
+     }
+  }
+  .breadcrumb{
+    background-color: rgb(248, 248, 248);
   }
   .dropdown-item {
     color:#fff;
@@ -70,11 +77,13 @@ export default {
     text-decoration: none;
     //border-bottom:1px solid #f7f5f5;
     &:focus,&:hover{
-      color:#e6522c;
-      background-color:#4d4f52;
+      color:#fff;
+      background-color:#212529;
+      opacity:.5;
     }
     &.active,&:active{
-       background-color:#4d4f52;
+      background-color:#212529;
+      opacity:.5;
     }
     &:last-of-type{
       border-bottom:none;
@@ -87,12 +96,13 @@ export default {
     margin-left: -1px;
     line-height: 1.25;
     color: #e6522c;
-    background-color:#e9ecef; 
+    background-color:rgb(248, 248, 248); 
     border:none;
     &:focus,&:hover{
       color:#e6522c;
       opacity:.5;
       text-decoration:underline;
+      background-color: rgb(248, 248, 248);
     }
 }
 </style>

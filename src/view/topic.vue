@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-18 11:27:58
+ * Modified By: 2017-12-19 10:34:25
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -15,6 +15,7 @@
 <template>
     <b-container class="topic">
         <v-header></v-header>
+        <remote src="/static/plug/social-share.js/dist/js/social-share.min.js"></remote>
         <b-row>
             <b-col style="padding-left:0;padding-right:0px;"><b-breadcrumb :items="items"></b-breadcrumb></b-col>
         </b-row>
@@ -22,11 +23,28 @@
             <b-col lg="9" md="9" sm="12" class="article">
                 <h1>Python 变量类型</h1>
                 <div class="tools">
-                    <icon class="icon-item" name="eye"></icon><span class="icon-item-number">22</span>
-                    <icon class="icon-item" name="commenting-o"></icon><span class="icon-item-number">22</span>
-                    <icon class="icon-item" name="thumbs-o-up"></icon><span class="icon-item-number">22</span>
-                    <icon class="icon-item" name="thumbs-o-down"></icon><span class="icon-item-number">22</span>
-                    <icon class="icon-item" name="calendar-minus-o"></icon><span class="icon-item-number">22</span>
+                    <ul class="icons">
+                        <li>
+                            <icon class="icon-item" name="eye"></icon>
+                            <span class="icon-item-number">22</span>
+                        </li>
+                        <li>
+                            <icon class="icon-item" name="commenting-o"></icon>
+                            <span class="icon-item-number">22</span>
+                        </li>
+                        <li>
+                            <icon class="icon-item" name="thumbs-o-up"></icon>
+                            <span class="icon-item-number">22</span>
+                        </li>
+                        <li>
+                            <icon class="icon-item" name="thumbs-o-down"></icon>
+                            <span class="icon-item-number">22</span>
+                        </li>
+                        <li>
+                            <icon class="icon-item" name="calendar-minus-o"></icon>
+                            <span class="icon-item-number">2017-12-18</span>
+                        </li>
+                    </ul>
                     <div class="text-right">
                         分享:<div class="share" id="share"></div>
                     </div>
@@ -37,7 +55,7 @@
                 <p>
                     在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
                 </p>
-                <nav aria-label="Page navigation">
+                <nav aria-label="Page navigation" class="pager">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
                             <b-link :href="'/'" class="page-link">上一篇:Python 简介</b-link>
@@ -57,6 +75,7 @@
 <script>
     import vHeader from '../components/header.vue'
     import vFooter from '../components/footer.vue'
+    
     export default {
         data() {
             return {
@@ -91,12 +110,9 @@
         methods:{
         },
         mounted(){
-           window.onload=()=>{
-
-               socialShare('#share',{
-                   sites: ['qzone', 'qq', 'weibo','wechat','douban'], 
-               });
-           }
+            socialShare('#share',{
+                sites: ['qzone', 'qq', 'weibo','wechat','douban'], 
+            });
         }
     }
 </script>
@@ -105,45 +121,51 @@
     .topic{
         padding-top:80px;
         .breadcrumb{
-            box-shadow:2px -2px 5px #eee;
+            box-shadow:2px -2px 5px rgb(248, 248, 248);
             .breadcrumb-item{
                text-transform:uppercase;
             }
         }
         .article{
-            background-color: #e9ecef;
+            background-color: rgb(248, 248, 248);
             box-shadow:2px -2px 5px #eee;
+            padding-bottom:20px;
+            min-height:650px;
+            position: relative;
             h1{
-                font-size:2rem;
-                line-height:2.5rem;
-                height:2.5rem;
+                font-size:1.5rem;
+                line-height:2.2rem;
+                height:2.2rem;
                 border-left:2px solid nth($baseColor,3);
                 padding-left:10px;
-                margin-top:2.5rem;
+                margin-top:2.2rem;
             }
             .tools{
-                padding-left:2em;
-                margin-top:15px;
-                position: relative;
-                .icon-item{
-                    margin-right:5px;
-                    color:lighten(nth($baseColor,3),10%);
-                }
-                .icon-item-number{
-                    font-size:1.1rem;
-                    display:inline-block;
-                    width:20px;
-                    margin-top:5px;
+                .icons{
+                    margin-top:10px;
+                    li{
+                        float: left;
+                        padding:0 4px 0 4px;
+                        &:hover{
+                            text-decoration:underline;
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
             p{
                 text-indent:2em;
-                font-size:1.2rem;
+                font-size:1rem;
                 line-height:1.8rem;
-                padding-bottom:10px;
+                padding-bottom:15px;
                 &:first-of-type{
-                    margin-top:10px;
+                    margin-top:15px;
                 }
+            }
+            .pager{
+                position: absolute;
+                bottom:10px;
+                left:25%;
             }
         }
     }

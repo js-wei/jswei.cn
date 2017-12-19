@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-19 12:01:38
+ * Modified By: 2017-12-19 9:30:27
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -69,7 +69,7 @@
                     data:'https://n.jswei.cn',
                     //background:'#e6522c',
                     //foreground:'#fffffff',
-                    size:100,
+                    size:120,
                     logo:{
                         image:'/static/images/10104373.png'
                     }
@@ -136,7 +136,7 @@
                     //qrcode
                     .qrcanvas{
                         position: absolute;
-                        top:30px;
+                        top:40px;
                         right:15px;
                     }
                 }
