@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-19 10:34:25
+ * Modified By: 2017-12-20 9:52:34
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -66,7 +66,11 @@
                     </ul>
                 </nav>
             </b-col>
-            <b-col lg="3" md="3" sm="12">22</b-col>
+            <b-col lg="3" md="3" sm="12">
+                <v-list :list="list" :bdColor="'#e6522c'" :hdTitle="'栏目推荐'"></v-list>
+                <v-list :list="list" :bdColor="'#00ca00'" :hdTitle="'相关推荐'"></v-list>
+                <v-list :list="list" :bdColor="'#f19d87'" :hdTitle="'随机推荐'"></v-list>
+            </b-col>
         </b-row>
         <v-footer></v-footer>
     </b-container>
@@ -75,6 +79,7 @@
 <script>
     import vHeader from '../components/header.vue'
     import vFooter from '../components/footer.vue'
+    import vList from '../components/list.vue'
     
     export default {
         data() {
@@ -88,12 +93,21 @@
                 },{
                     text: '详情',
                     href: ''  
-                }]
+                }],
+                hdTitle:'测试标题',
+                list:[
+                    {id:'1',title:'测试的文章标题1',date:'2017-12-01'},
+                    {id:'2',title:'测试的文章标题2',date:'2017-12-02'},
+                    {id:'3',title:'测试的文章标题3',date:'2017-12-03'},
+                    {id:'4',title:'测试的文章标题4',date:'2017-12-04'},
+                    {id:'5',title:'测试的文章标题5',date:'2017-12-05'},
+                ]
             }
         },
         components: {
             vHeader,
             vFooter,
+            vList,
             'remote': {
                 render(createElement) {
                     if(this.src.indexOf('.css')>-1){
@@ -110,9 +124,11 @@
         methods:{
         },
         mounted(){
-            socialShare('#share',{
-                sites: ['qzone', 'qq', 'weibo','wechat','douban'], 
-            });
+            window.onload=()=>{
+                socialShare('#share',{
+                    sites: ['qzone', 'qq', 'weibo','wechat','douban'], 
+                });
+            }
         }
     }
 </script>
@@ -137,8 +153,9 @@
                 line-height:2.2rem;
                 height:2.2rem;
                 border-left:2px solid nth($baseColor,3);
-                padding-left:10px;
+                padding-left:.8em;
                 margin-top:2.2rem;
+                color:nth($baseColor,3);
             }
             .tools{
                 .icons{

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <div class="progress-bar"></div>
       <router-view></router-view>
       <v-loding :visible="visible" :loading="loading"></v-loding>
   </div>
@@ -7,6 +8,8 @@
 <script>
 import Bus from './store/bus'
 import vLoding from './components/loding.vue'
+import ProgressBar  from 'progressbar.js'
+
 export default {
   name: 'app',
   data () {
@@ -24,6 +27,22 @@ export default {
     Bus.$on('loading',result=>{
       this.visible =result;
     });
+    var bar = new ProgressBar.Line('.progress-bar',{
+      strokeWidth:1,
+      easing: 'easeInOut',
+      color: '#FFEA82',
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: {width: '100%', height: '100%'},
+      from: {color: '#FFEA82'},
+      to: {color: '#e6522c'},
+      step: (state, bar) => {
+        bar.path.setAttribute('stroke', state.color);
+      }
+    });
+    bar.animate(1,()=>{
+     document.querySelector('.progress-bar').style.display='none';
+    }); 
   }
 }
 </script>
@@ -31,6 +50,16 @@ export default {
   html {
     font-size: 62.5%;
   }
+  #app{
+    .progress-bar{
+      position: absolute;
+      top:0;
+      z-index: 1500;
+      width: 100%;
+      height:1.5px;
+    }
+  }
+
   *:focus {
     outline: none;
   }
