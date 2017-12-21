@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-20 9:52:34
+ * Modified By: 2017-12-20 11:37:35
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -126,7 +126,14 @@
         mounted(){
             window.onload=()=>{
                 socialShare('#share',{
-                    sites: ['qzone', 'qq', 'weibo','wechat','douban'], 
+                    url:encodeURIComponent(location.href),
+                    // source:'',
+                    // title:'',
+                    // description:'',
+                    // image:'',
+                    sites:['qzone', 'qq', 'weibo','wechat','douban'],
+                    //disabled:['google', 'facebook', 'twitter'],
+                    //wechatQrcodeHelper:''
                 });
             }
         }

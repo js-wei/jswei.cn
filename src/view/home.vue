@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-18 4:11:31
+ * Modified By: 2017-12-20 11:46:08
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -18,7 +18,7 @@
         <b-container class="last-update">
             <b-row>
                 <b-col class="last-update-title">
-                    <h2>最后更新 </h2>
+                    <h2>最后更新</h2>
                 </b-col>
                 <b-col class="text-right last-update-title">
                     <router-link :to="'/category/id'">查看更多 &gt;&gt;</router-link>
@@ -107,11 +107,12 @@
             height:50px;
             line-height:50px;
             h2{
-               height:20px;
-               line-height:20px;
+               height:2rem;
+               line-height:2rem;
                margin-top:15px;
                border-left:2px solid nth($baseColor,3);
                padding-left:10px;
+               font-size:1.5rem;
             }
         }
         .last-update-item{

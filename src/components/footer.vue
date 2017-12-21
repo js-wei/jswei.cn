@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-18 4:42:31
+ * Modified By: 2017-12-21 12:13:21
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -17,7 +17,6 @@
         <hr>
         <div class="copyright">
             <address>
-                <strong>魏巍, Inc.</strong><br>
                 江苏省苏州市姑苏区<br>
                 三元二村47幢<br>
                 <abbr title="手机">M:</abbr> 13584866592
@@ -68,7 +67,6 @@
                     opacity: 0
                 })
             }),
-            //download by www.sucaijiayuan.com
             $(".level-3").click(function() {
                 function t() {
                     var t = e.css("background-position");
@@ -111,7 +109,8 @@
             font-size:.9rem;
         }
         #rocket-to-top{
-            background: url("/static/images/rocket_button_up.png") no-repeat scroll 0 0 transparent;
+            background: url("/static/images/rocket_button_up.png") 
+                no-repeat scroll 0 0 transparent;
             cursor: default;
             display: block;
             height: 250px;
@@ -133,7 +132,9 @@
                 width: 149px;
             }
             .level-2{
-                background: url("/static/images/rocket_button_up.png") no-repeat scroll -149px 0 transparent;
+                background: 
+                    url("/static/images/rocket_button_up.png") 
+                    no-repeat scroll -149px 0 transparent;
                 display: none;
                 height: 250px;
                 opacity: 0;

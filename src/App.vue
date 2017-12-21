@@ -1,3 +1,60 @@
+/**
+ * File: g:\vue\jswei.cn\src\App.vue
+ * Created Date: 2017-12-14 7:36:20
+ * Author: 魏巍
+ * -----
+ * Last Modified: 魏巍
+ * Modified By: 2017-12-21 11:54:14
+ * -----
+ * Copyright (c) 2017 魏巍
+ * ------
+ * All shall be well and all shall be well and all manner of things shall be well.
+ * We're doomed!
+ */
+
+
+
+
+
+
+/**
+ * File: g:\vue\jswei.cn\src\App.vue
+ * Created Date: 2017-12-14 7:36:20
+ * Author: 魏巍
+ * -----
+ * Last Modified: 魏巍
+ * Modified By: 2017-12-21 12:40:18
+ * -----
+ * Copyright (c) 2017 魏巍
+ * ------
+ * All shall be well and all shall be well and all manner of things shall be well.
+ * We're doomed!
+ */
+
+
+
+
+
+
+/**
+ * File: g:\vue\jswei.cn\src\App.vue
+ * Created Date: 2017-12-14 7:36:20
+ * Author: 魏巍
+ * -----
+ * Last Modified: 魏巍
+ * Modified By: 2017-12-21 12:40:17
+ * -----
+ * Copyright (c) 2017 魏巍
+ * ------
+ * All shall be well and all shall be well and all manner of things shall be well.
+ * We're doomed!
+ */
+
+
+
+
+
+
 <template>
   <div id="app">
       <div class="progress-bar"></div>
@@ -125,13 +182,19 @@ export default {
     margin-left: -1px;
     line-height: 1.25;
     color: #e6522c;
-    background-color:rgb(248, 248, 248); 
     border:none;
     &:focus,&:hover{
       color:#e6522c;
-      opacity:.5;
       text-decoration:underline;
-      background-color: rgb(248, 248, 248);
     }
-}
+  }
+  .page-item.active .page-link{
+    color:#fff;
+    background-color: #e6522c;
+    border-color: #e6522c;
+  }
+  .btn-primary:focus{
+    border-color: #e6522c;
+    box-shadow:none;
+  }
 </style>
