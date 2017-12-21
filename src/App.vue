@@ -4,56 +4,13 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-21 11:54:14
+ * Modified By: 2017-12-21 7:06:34
  * -----
  * Copyright (c) 2017 魏巍
  * ------
  * All shall be well and all shall be well and all manner of things shall be well.
  * We're doomed!
  */
-
-
-
-
-
-
-/**
- * File: g:\vue\jswei.cn\src\App.vue
- * Created Date: 2017-12-14 7:36:20
- * Author: 魏巍
- * -----
- * Last Modified: 魏巍
- * Modified By: 2017-12-21 12:40:18
- * -----
- * Copyright (c) 2017 魏巍
- * ------
- * All shall be well and all shall be well and all manner of things shall be well.
- * We're doomed!
- */
-
-
-
-
-
-
-/**
- * File: g:\vue\jswei.cn\src\App.vue
- * Created Date: 2017-12-14 7:36:20
- * Author: 魏巍
- * -----
- * Last Modified: 魏巍
- * Modified By: 2017-12-21 12:40:17
- * -----
- * Copyright (c) 2017 魏巍
- * ------
- * All shall be well and all shall be well and all manner of things shall be well.
- * We're doomed!
- */
-
-
-
-
-
 
 <template>
   <div id="app">
@@ -69,6 +26,17 @@ import ProgressBar  from 'progressbar.js'
 
 export default {
   name: 'app',
+  metaInfo: {
+      title: '技术博客|魏巍的博客|Vue版本',
+      meta: [{
+          name: 'keywords',
+          content: '最好,博客,ThinkPHP,Nodejs,JavaScript'
+      },
+      {
+          name: 'description',
+          content: '这是使用ThinkPHP写的,用于介绍asp.net的博客,Vue版本'
+      }]
+  },
   data () {
     return {
      visible:false,
@@ -106,7 +74,7 @@ export default {
 <style lang="scss"> 
   html {
     font-size: 62.5%;
-  }
+  } 
   #app{
     .progress-bar{
       position: absolute;
@@ -116,7 +84,6 @@ export default {
       height:1.5px;
     }
   }
-
   *:focus {
     outline: none;
   }
@@ -126,7 +93,7 @@ export default {
     }
   }
   .carousel-caption{
-    bottom: 30%;
+    bottom: 35%;
   }
   a{
     color:#e6522c;

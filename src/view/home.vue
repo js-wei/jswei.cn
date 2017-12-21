@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-21 3:42:15
+ * Modified By: 2017-12-21 6:52:17
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -46,16 +46,6 @@
     import vFooter from '../components/footer.vue'
     import vCarousel from '../components/carousel.vue'
     export default {
-        metaInfo: {
-            title: '技术博客|魏巍的博客|Vue版本', // set a title
-            meta: [{                 // set meta
-                name: 'keywords',
-                content: '最好,博客,ThinkPHP,Nodejs,JavaScript'
-            },{                 // set meta
-                name: 'description',
-                content: '这是使用ThinkPHP写的,用于介绍asp.net的博客,Vue版本'
-            }]
-        },
         data() {
             return {
                 home: '首页',
