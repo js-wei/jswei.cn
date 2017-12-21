@@ -19,7 +19,9 @@ Vue.component('icon', Icon)
 import Bus from './store/bus'
 //tools
 import Tools from './tools/index'
+import MetaInfo from 'vue-meta-info'
 
+Vue.use(MetaInfo)
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
