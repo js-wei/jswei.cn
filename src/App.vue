@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-21 7:06:34
+ * Modified By: 2017-12-22 2:40:24
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -93,7 +93,7 @@ export default {
     }
   }
   .carousel-caption{
-    bottom: 35%;
+    bottom: 30%;
   }
   a{
     color:#e6522c;
@@ -142,13 +142,14 @@ export default {
       border-bottom:none;
     }
   }
-  .page-link {
+  //page reset
+.page-link {
     position: relative;
     display: block;
     padding: .5rem .75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #e6522c;
+    color:#e6522c;
     border:none;
     &:focus,&:hover{
       color:#e6522c;
@@ -157,11 +158,27 @@ export default {
   }
   .page-item.active .page-link{
     color:#fff;
-    background-color: #e6522c;
-    border-color: #e6522c;
+    background-color:#e6522c;
+    border-color:#e6522c;
+    text-decoration:none;
   }
   .btn-primary:focus{
-    border-color: #e6522c;
+    border-color:#e6522c;
     box-shadow:none;
+  }
+  .btn-primary:not([disabled]):not(.disabled).active, 
+  .btn-primary:not([disabled]):not(.disabled):active, 
+  .show>.btn-primary.dropdown-toggle{
+      color: #fff;
+      background-color:#e6522c;
+      border-color:#e6522c;
+      box-shadow: none;
+  }
+  .ql-preview{
+      font-size:20px;
+  }
+  button:focus{
+    box-shadow:none;
+    outline:none;
   }
 </style>

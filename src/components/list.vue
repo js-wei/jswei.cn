@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-20 9:58:20
+ * Modified By: 2017-12-22 11:52:53
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -17,6 +17,14 @@
         <h2 :style="'border-left:1px solid '+bdColor+';color:'+frColor+';'">{{hdTitle}}</h2>
         <ul class="list-group">
             <li v-for="(item,index) in list" :key="index">
+                <span v-if="badge">
+                    <b-badge variant="danger" v-if="index==0">{{++index}}</b-badge>
+                    <b-badge variant="warning" v-else-if="index==1" style="color:white;">{{++index}}</b-badge>
+                    <b-badge variant="info" v-else-if="index==2">{{++index}}</b-badge>
+                    <b-badge variant="success" v-else-if="index==3">{{++index}}</b-badge>
+                    <b-badge variant="dark" v-else-if="index==4">{{++index}}</b-badge>
+                    <b-badge variant="secondary" v-else>{{++index}}</b-badge>
+                </span>
                 <router-link :to="path+'/'+item.id" v-if="path">
                     <span v-if="item.title.length>15" 
                         v-b-tooltip 
@@ -74,6 +82,11 @@
                 required:false,
                 type:String,
                 default:''
+            },
+            badge:{
+                type:Boolean,
+                required:false,
+                default:true
             }
         },
     }

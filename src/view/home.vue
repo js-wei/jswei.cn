@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-21 6:52:17
+ * Modified By: 2017-12-22 10:51:17
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -21,11 +21,11 @@
                     <h2>最后更新</h2>
                 </b-col>
                 <b-col class="text-right last-update-title">
-                    <router-link :to="'/category/id'">查看更多 &gt;&gt;</router-link>
+                    <router-link :to="'/category/id'">查看更多&gt;&gt;</router-link>
                 </b-col>
             </b-row>
             <b-row> 
-                <b-col cols="4" v-for="(item,index) in lastUpdate" :key="index">
+                <b-col md="6" lg="4" v-for="(item,index) in lastUpdate" :key="index">
                     <b-card :title="item.title"
                             tag="article"
                             class="last-update-item">
@@ -104,8 +104,8 @@
     @import 'static/style/base';
     .last-update{
         .last-update-title{
-            height:50px;
-            line-height:50px;
+            height:3.5rem;
+            line-height:3.5rem;
             h2{
                height:2rem;
                line-height:2rem;

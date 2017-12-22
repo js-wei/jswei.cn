@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-21 7:04:41
+ * Modified By: 2017-12-22 10:52:33
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -66,7 +66,7 @@ export default {
         text-shadow: rgba(0,0,0,0.2) 0px 2px 0px;
         .carousel-caption{
           h1{
-            padding-bottom:1.5rem;
+            padding-bottom:.8rem;
             font-size:2rem;
           }       
           p{
