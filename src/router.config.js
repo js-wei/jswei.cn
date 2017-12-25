@@ -1,7 +1,11 @@
 
-const Index = resolve => require(['./view/home.vue'], resolve)
-const Topic = resolve => require(['./view/topic.vue'],resolve);
-const Category = resolve => require(['./view/category.vue'],resolve);
+// const Index = resolve => require(['./view/home.vue'], resolve)
+// const Topic = resolve => require(['./view/topic.vue'],resolve);
+// const Category = resolve => require(['./view/category.vue'],resolve);
+
+import Index from './view/home.vue'
+import Topic from './view/topic.vue'
+import Category from './view/category.vue'
 
 export default[
     {

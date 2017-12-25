@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-22 2:40:24
+ * Modified By: 2017-12-25 11:36:09
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -16,12 +16,12 @@
   <div id="app">
       <div class="progress-bar"></div>
       <router-view></router-view>
-      <v-loding :visible="visible" :loading="loading"></v-loding>
+      <v-loding :visible="visible" :text="loading.text"></v-loding>
   </div>
 </template>
 <script>
 import Bus from './store/bus'
-import vLoding from './components/loding.vue'
+import vLoding from './components/vue-alert-loading.vue'
 import ProgressBar  from 'progressbar.js'
 
 export default {
@@ -151,6 +151,7 @@ export default {
     line-height: 1.25;
     color:#e6522c;
     border:none;
+    background-color: #f8f8f8; 
     &:focus,&:hover{
       color:#e6522c;
       text-decoration:underline;
