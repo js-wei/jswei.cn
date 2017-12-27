@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-22 11:55:20
+ * Modified By: 2017-12-27 11:46:40
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -107,14 +107,14 @@
         .col-left{
             .media{
                 border-bottom:1px solid rgba(0,0,0,.1);
-                padding-bottom:15px;
+                padding-bottom:10px;
                 height: auto;
                 overflow: hidden;
                 .media-body{
                     h1{
-                        font-size:1.5rem;
+                        font-size:1.8rem;
                         line-height:2rem;
-                        padding-bottom:10px;
+                        height:2rem;
                         a{
                             &:hover{
                                 text-decoration:none;
@@ -123,8 +123,12 @@
                         }
                     }
                     .icon-list{
+                        width:100%;
+                        height:auto;
                         ul{
-                            margin-left:5px;
+                            list-style:none;
+                            padding-left:.8rem;
+                            padding-bottom:10px;
                             li{
                                 float: left;
                                 color:nth($baseColor,2);
@@ -139,23 +143,21 @@
                         }
                     }
                     p{
-                        font-size:1rem;
-                        line-height:1.5rem;
+                        font-size:1.5rem;
+                        line-height:2rem;
                         text-indent:2em;
+                        
                     }
                 }
             }
             .pagination{
-                margin-top:15px;
+                margin-top:10px;
             }
         }
     }
-    .pager{
-        margin-top:2rem;
-    }
     @media screen and (max-width:990px) {
         .col-right{
-            margin-top:20px;
+            margin-top:15px;
         }
     }
 </style>

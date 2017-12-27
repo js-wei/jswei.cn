@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-25 11:34:10
+ * Modified By: 2017-12-27 11:17:47
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -93,9 +93,9 @@
         padding-bottom:10px;
         h2{
             padding-left:10px;
-            font-size:1.5rem;
-            height:1.8rem;
-            line-height:1.8rem;
+            font-size:1.8rem;
+            height:2rem;
+            line-height:2rem;
         }
         .list-group{
             margin-left:10px;
@@ -105,10 +105,10 @@
                 line-height:2em;
                 position: relative;
                 a{
-                    font-size:.9rem;
+                    font-size:1.5rem;
                 }
                 span.date{
-                    font-size:.9rem;
+                    font-size:1.5rem;
                     position: absolute;
                     right:0;
                 }

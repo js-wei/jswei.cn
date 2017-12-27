@@ -16,15 +16,30 @@ import 'vue-awesome-for-toolbar/icons'
 import Icon from 'vue-awesome-for-toolbar/components/Icon.vue'
 Vue.component('icon', Icon)
 //store
-import Bus from './store/bus'
+import bus from './store/bus'
 //tools
 import Tools from './tools/index'
 import MetaInfo from 'vue-meta-info'
+import Share from 'vue-social-share'
 
 Vue.use(MetaInfo)
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
+Vue.use(Share)
+//注册全局组件
+Vue.component('remote',{
+  render(createElement) {
+      if(this.src.indexOf('.css')>-1){
+          return createElement('link', { attrs: { type: 'text/css', src: this.src }});
+      }else{
+          return createElement('script', { attrs: { type: 'text/javascript', src: this.src }});
+      }
+  },
+  props: {
+      src: { type: String, required: true },
+  }
+});
 
 //注册全局过滤器
 Object.keys(Filters).forEach(key =>{
@@ -37,15 +52,14 @@ Object.keys(Tools).forEach(key =>{
 })
 
 axios.defaults.baseURL = 'http://www.n.jswei.cn/';
-//axios的一些配置，比如发送请求显示loading，请求回来loading消失之类的
-axios.interceptors.request.use(function (config) {  //配置发送请求的信息
-  Bus.$emit('loading',true);
+axios.interceptors.request.use(function (config) {
+  bus.$emit('loading',{loading:true,text:'正在努力加载中'});
   return config;
 }, function (error) {
   return Promise.reject(error);
 });
-axios.interceptors.response.use(function (response) { //配置请求回来的信息
-  Bus.$emit('loading',false);
+axios.interceptors.response.use(function (response) { 
+  bus.$emit('loading',{loading:true});
   return response;
 }, function (error) {
   return Promise.reject(error);

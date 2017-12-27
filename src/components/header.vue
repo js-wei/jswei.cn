@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-19 9:30:27
+ * Modified By: 2017-12-27 11:13:24
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -101,7 +101,7 @@
                     position: absolute;
                     top:1.2rem;
                     margin-left:5px;
-                    font-size:.8rem;
+                    font-size:1.2rem;
                 }
             }
             .navbar-collapse{
@@ -125,7 +125,7 @@
                        li{
                            a{
                                color:nth($baseColor,1);
-                               font-size:1.2rem;
+                               font-size:1.5rem;
                                padding:0 5px 0 5px;
                                &:hover{
                                    opacity:.5;
