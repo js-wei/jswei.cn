@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-24 2:56:11
+ * Modified By: 2017-12-28 12:38:13
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -14,13 +14,12 @@
 
 <template>
     <b-container class="topic">
-        <remote src="/static/plug/social-share.js/dist/js/social-share.min.js"></remote>
         <v-header></v-header>
         <b-row>
             <b-col style="padding-left:0;padding-right:0px;"><b-breadcrumb :items="items"></b-breadcrumb></b-col>
         </b-row>
         <b-row>
-            <b-col lg="9" md="9" sm="12" class="p-0">
+            <b-col lg="9" md="12" sm="12" class="p-0">
                 <div class="article">
                     <h1>Python 变量类型</h1>
                     <div class="tools">
@@ -47,15 +46,30 @@
                             </li>
                         </ul>
                         <div class="text-right">
-                            分享:<div class="share" id="share"></div>
+                            分享:
+                            <share :config="shareOptions"></share>
                         </div>
                     </div>
-                    <p>
-                        变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。
-                    </p>
-                    <p>
-                        在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
-                    </p>
+                    <div class="article-content pl-3 pr-3">
+                        <p>
+                            变量存储在内存中的值。这就意味着在创建变量时会在内存中开辟一个空间。基于变量的数据类型，解释器会分配指定内存，并决定什么数据可以被存储在内存中。因此，变量可以指定不同的数据类型，这些变量可以存储整数，小数或字符。
+                        </p>
+                        <p>
+                            在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
+                        </p>
+                        <p>
+                            在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
+                        </p>
+                        <p>
+                            在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
+                        </p>
+                        <p>
+                            在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
+                        </p>
+                        <p>
+                            在 Python 里，标识符有字母、数字、下划线组成。在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。Python 中的标识符是区分大小写的。
+                        </p>
+                    </div>
                     <nav aria-label="Page navigation" class="pager">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
@@ -77,18 +91,58 @@
                     <vue-editor id="editor" ref="editor"
                         useCustomImageHandler
                         @imageAdded="handleImageAdded" 
-                        v-model="htmlForEditor"
                         :editorToolbar="customToolbar" 
                         :disabled="disabled"
-                        :syntax="true">
+                        placeholder="我会虚心接受您的建议">
                     </vue-editor>
-                    <div class="float-right mt-2">
-                        <button class="btn btn-primary send" 
-                            @click="send">发表评论[Ctrl+S]</button>
+                    <div class="float-left pt-2 pl-3 text-danger">
+                        *评论字数请控制在250字符以内
                     </div>
+                    <b-button variant="danger" class="mt-2 p-2 float-right submit" :disabled="!has_content"  @click="submit">
+                       提交(Ctrl+Enter)
+                    </b-button>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <b-media tag="li" class="my-4">
+                            <b-img slot="aside" rounded="circle" blank blank-color="#abc" width="64" alt="placeholder" />
+                            <h5 class="mt-0 mb-1">匿名用户1</h5>
+                            <span>2017-12-27</span>
+                            <p>
+                                受教了!!!!!
+                            </p>
+                        </b-media>
+                        <hr>
+                        <b-media tag="li" class="my-4">
+                            <b-img slot="aside" rounded="circle" blank blank-color="#cba" width="64" alt="placeholder" />
+                            <h5 class="mt-0 mb-1">匿名用户2</h5>
+                            <span>2017-12-27</span>
+                            <p>
+                                胡扯巴叨,哪有你说的那样子的!!!!!
+                            </p>
+                        </b-media>
+                        <hr>
+                        <b-media tag="li" class="my-4">
+                            <b-img slot="aside" rounded="circle" blank blank-color="#bac" width="64" alt="placeholder" />
+                            <h5 class="mt-0 mb-1">匿名用户3</h5>
+                            <span>2017-12-27</span>
+                            <p>
+                               我就是不想跟你说
+                            </p>
+                        </b-media>
+                        <hr>
+                        <b-media tag="li" class="my-4">
+                            <b-img slot="aside" rounded="circle" blank blank-color="#bac" width="64" alt="placeholder" />
+                            <h5 class="mt-0 mb-1">匿名用户4</h5>
+                            <span>2017-12-27</span>
+                            <p>
+                                有人用了吗?
+                            </p>
+                        </b-media>
+                    </ul>
                 </section>
             </b-col>
-            <b-col lg="3" md="3" sm="12">
+            <b-col lg="3" md="12" sm="12" class="col-right">
                 <v-list :list="list" :bdColor="'#e6522c'" :hdTitle="'栏目推荐'"></v-list>
                 <v-list :list="list" :bdColor="'#00ca00'" :hdTitle="'相关推荐'"></v-list>
                 <v-list :list="list" :bdColor="'#f19d87'" :hdTitle="'随机推荐'"></v-list>
@@ -102,17 +156,22 @@
     import vHeader from '../components/header.vue'
     import vFooter from '../components/footer.vue'
     import vList from '../components/list.vue'
-    import {VueEditor} from 'vue2-editor'
-    import Bus from '../store/bus'
+    import { VueEditor } from 'vue2-editor'
+    import bus from '../store/bus'
     
     export default {
         data() {
             return {
                 disabled:false,
-                htmlForEditor:'',
+                has_content:false,
+                shareOptions:{
+                   source:window.location.href,
+                   disabled:['google', 'facebook', 'twitter','diandian','lingin'], // 禁用的站点
+                },
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
-                    ['image','blockquote', 'code-block'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['blockquote', 'code-block'],
                 ],
                 items:[{
                     text: `首页`,
@@ -138,23 +197,10 @@
             vHeader,
             vFooter,
             vList,
-            VueEditor,
-            'remote': {
-                render(createElement) {
-                    if(this.src.indexOf('.css')>-1){
-                        return createElement('link', { attrs: { type: 'text/css', src: this.src }});
-                    }else{
-                        return createElement('script', { attrs: { type: 'text/javascript', src: this.src }});
-                    }
-                },
-                props: {
-                    src: { type: String, required: true },
-                }
-            }
+            VueEditor
         },
         methods: {
             handleImageAdded: function(file, Editor, cursorLocation) {
-                Bus.$emit('load_text','图片正在上传中,可能需要一些时间...');
                 var formData = new FormData();
                 formData.append('image', file);
                 this.axios({
@@ -170,36 +216,28 @@
                     console.log(err);
                 })
             },
-            send(){
-                let quill = this.$refs.editor.quill;
-                let delta = quill.getContents(),
-                deltaHtml = quill.container.firstChild.innerHTML;
-                console.log(deltaHtml)
+            submit(){
+                if(!this.has_content){
+                    bus.$emit('loading',{loading:true,text:'请填写评论...'});
+                    setTimeout(function(){
+                         bus.$emit('loading',{loading:false});
+                    },2e3);
+                }
             }
         },
         mounted(){
-            window.onload=()=>{
-                socialShare('#share',{
-                    url:encodeURIComponent(location.href),
-                    // source:'',
-                    // title:'',
-                    // description:'',
-                    // image:'',
-                    sites:['qzone', 'qq', 'weibo','douban'],
-                    //disabled:['google', 'facebook', 'twitter'],
-                    //wechatQrcodeHelper:''
-                });
-            }
-           
-            let quill = this.$refs.editor.quill,
-                btnPreview = document.querySelector('.ql-preview');
-                //quill.options.modules.syntax=true;
+            document.querySelector('.wechat-qrcode').style.zIndex=3031;
+            let quill = this.$refs.editor.quill;
             quill.keyboard.addBinding({
-                key:'s',
+                key:17,
                 ctrlKey: true
-            }, function(range, context) {
-                let delta = quill.getContents(),
-                deltaHTML = quill.container.firstChild.innerHTML;
+            }, function() {
+               let jsonContent = quill.getContents(),
+               htmlContent = quill.container.firstChild.innerHTML;
+            });
+            quill.on('text-change', () =>{
+                let lenght = quill.getLength();
+                  this.has_content = lenght>1?true:false;
             });
         }
     }
@@ -221,20 +259,20 @@
             padding-left:10px;
             padding-right:10px;
             position: relative;
-            height:auto;
-            overflow: hidden;
+            padding-top:20px;
             h1{
-                font-size:1.5rem;
-                line-height:2.2rem;
-                height:2.2rem;
+                font-size:2.2rem;
+                line-height:3rem;
+                height:3rem;
                 border-left:2px solid nth($baseColor,3);
-                padding-left:.8em;
-                margin-top:2.2rem;
+                padding-left:5px;
+                margin-left:2rem;
                 color:nth($baseColor,3);
             }
             .tools{
                 .icons{
-                    margin-top:10px;
+                    padding:0 0 0 20px;
+                    list-style:none;
                     li{
                         float: left;
                         padding:0 4px 0 4px;
@@ -248,36 +286,26 @@
             }
             p{
                 text-indent:2em;
-                font-size:1rem;
-                line-height:1.8rem;
+                font-size:1.5rem;
+                line-height:2rem;
+                padding:0 5px;
                 padding-bottom:15px;
                 &:first-of-type{
                     margin-top:15px;
                 }
             }
-            .pager{
-                .pagination{
-                    li{
-                        a{
-                            background-color:#f8f8f8;
-                        }
-                    }
-                }
-            }
         }
         .discuss{
             margin-top:20px;
-            padding-bottom:20px;
-            div{
-                button{
-                    background-color:nth($baseColor,3);
-                    border-color:nth($baseColor,3);
-                    cursor: pointer;
-                    &:hover{
-                        opacity:.8;
-                    }
-                }
+            button{
+                font-size:1.5rem;
+                cursor: pointer;
             }
+        }
+    }
+    @media screen and (max-width:990px) {
+        .col-right{
+            margin-top:15px;
         }
     }  
 </style>

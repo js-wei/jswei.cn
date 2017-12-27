@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-23 11:06:39
+ * Modified By: 2017-12-28 12:37:23
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -113,22 +113,27 @@
             height:3.5rem;
             line-height:3.5rem;
             h2{
-               height:2rem;
-               line-height:2rem;
+               height:2.5rem;
+               line-height:2.5rem;
                margin-top:15px;
                border-left:2px solid nth($baseColor,3);
                padding-left:10px;
-               font-size:1.5rem;
+               font-size:2.2rem;
+            }
+            a{
+                font-size:1.3rem;
+                margin-top:1.2rem;
+                display: inline-block;
             }
         }
         .last-update-item{
-            margin-top:10px;
-            height:260px;
+            margin-top:15px;
+            height:280px;
             .card-body{
                 position: relative;
-                h1{
-                    font-size:1.5rem;
-                    padding-bottom:20px;
+                h4{
+                    font-size:2rem;
+                    padding-bottom:10px;
                     border-bottom:1px solid nth($baseColor,3);
                     a{
                         &:hover{
@@ -139,18 +144,13 @@
                 }
                 .card-text{
                    text-indent:2em;
-                   font-size:.9rem;
-                   line-height:1.5rem;
-                   padding-top:10px;
-                   &.small{
-                       bottom:10px;
-                       right:15px;
-                   }
+                   font-size:1.5rem;
+                   line-height:2rem; 
                 }
                 a{
-                  position: absolute;
+                  position:absolute;
                   bottom:20px;
-                  right:30px; 
+                  right:20px; 
                 }
             }
         }

@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-21 12:13:21
+ * Modified By: 2017-12-27 11:12:46
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -20,9 +20,9 @@
                 江苏省苏州市姑苏区<br>
                 三元二村47幢<br>
                 <abbr title="手机">M:</abbr> 13584866592
-                <abbr title="邮编">C:</abbr> 250000
+                <abbr title="邮编">C:</abbr> 250000<br/>
+                <abbr title="版权所有">©:</abbr> 2017-03-21 魏巍
             </address>
-            <p>© 2017-03-21 魏巍</p>
         </div>
         <div id="rocket-to-top">
             <div class="level-2"></div>
@@ -105,8 +105,8 @@
         height:120px;
         .copyright{
             text-align:right;
-            line-height:1.2rem;
-            font-size:.9rem;
+            line-height:1.5rem;
+            font-size:1rem;
         }
         #rocket-to-top{
             background: url("/static/images/rocket_button_up.png") 

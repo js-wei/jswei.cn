@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-22 11:52:53
+ * Modified By: 2017-12-27 11:17:47
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -27,24 +27,20 @@
                 </span>
                 <router-link :to="path+'/'+item.id" v-if="path">
                     <span v-if="item.title.length>15" 
-                        v-b-tooltip 
                         :title="item.title">
                         {{item.title|sub_string(10,true)}}
                     </span>
                     <span v-if="item.title.length<15" 
-                        v-b-tooltip 
                         :title="item.title">
                         {{item.title}}
                     </span>
                 </router-link>
                 <router-link :to="{path:'',params:{id:item.id}}" v-if="!path">
-                    <span v-if="item.title.length>15" 
-                        v-b-tooltip 
+                    <span v-if="item.title.length>15"
                         :title="item.title">
                         {{item.title|sub_string(10,true)}}
                     </span>
                     <span v-if="item.title.length<15" 
-                        v-b-tooltip 
                         :title="item.title">
                         {{item.title}}
                     </span>
@@ -97,21 +93,22 @@
         padding-bottom:10px;
         h2{
             padding-left:10px;
-            font-size:1.5rem;
-            height:1.8rem;
-            line-height:1.8rem;
+            font-size:1.8rem;
+            height:2rem;
+            line-height:2rem;
         }
         .list-group{
             margin-left:10px;
             margin-top:10px;
+            list-style:none;
             li{
-                line-height:1.4em;
+                line-height:2em;
                 position: relative;
                 a{
-                    font-size:.9rem;
+                    font-size:1.5rem;
                 }
                 span.date{
-                    font-size:.9rem;
+                    font-size:1.5rem;
                     position: absolute;
                     right:0;
                 }
