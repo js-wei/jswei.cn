@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-22 10:51:17
+ * Modified By: 2017-12-23 11:06:39
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -26,13 +26,18 @@
             </b-row>
             <b-row> 
                 <b-col md="6" lg="4" v-for="(item,index) in lastUpdate" :key="index">
-                    <b-card :title="item.title"
-                            tag="article"
-                            class="last-update-item">
+                    <b-card tag="article" class="position-relative last-update-item">
+                        <h1>
+                            <router-link :to="'/topic/'+item.id" class="position-static">
+                                {{item.title}}
+                            </router-link>
+                        </h1>
                         <p class="card-text">
                             {{item.descriptiom|sub_string(150,true)}}
                         </p>
-                        <b-button :href="'/topic/'+item.id">查看详情</b-button>
+                        <p class="card-text position-absolute small">
+                            <small class="text-muted">更新于3分钟之前</small>
+                        </p>
                     </b-card>
                 </b-col>
             </b-row>
@@ -45,6 +50,7 @@
     import vHeader from '../components/header.vue'
     import vFooter from '../components/footer.vue'
     import vCarousel from '../components/carousel.vue'
+    
     export default {
         data() {
             return {
@@ -117,18 +123,29 @@
         }
         .last-update-item{
             margin-top:10px;
-            height:280px;
+            height:260px;
             .card-body{
                 position: relative;
-                h4{
+                h1{
                     font-size:1.5rem;
-                    padding-bottom:10px;
+                    padding-bottom:20px;
                     border-bottom:1px solid nth($baseColor,3);
+                    a{
+                        &:hover{
+                            text-decoration: none;
+                            color:nth($baseColor,2);
+                        }
+                    }
                 }
                 .card-text{
                    text-indent:2em;
                    font-size:.9rem;
-                   line-height:1.5rem; 
+                   line-height:1.5rem;
+                   padding-top:10px;
+                   &.small{
+                       bottom:10px;
+                       right:15px;
+                   }
                 }
                 a{
                   position: absolute;

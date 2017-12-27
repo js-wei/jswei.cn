@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-22 2:40:24
+ * Modified By: 2017-12-24 1:01:13
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -51,6 +51,9 @@ export default {
   mounted(){
     Bus.$on('loading',result=>{
       this.visible =result;
+    });
+    Bus.$on('load_text',result=>{
+      this.loading.text=result;
     });
     var bar = new ProgressBar.Line('.progress-bar',{
       strokeWidth:1,
@@ -181,4 +184,20 @@ export default {
     box-shadow:none;
     outline:none;
   }
+  .cpt-loading-mask.col .div-loading .loading-discription{
+        position:relative;
+        animation:myfirst 15s infinite linear;
+        -moz-animation:myfirst 15s infinite linear;
+        -webkit-animation:myfirst 15s infinite linear;
+        -o-animation:myfirst 15s infinite linear;
+        top:0px;
+    }
+    @keyframes myfirst {
+        0%   {color:#e6522c;left:16px; bottom:30px;}
+        50%  {color:pink;left:-16px;bottom:30px;}
+        100% {color:#e6522c;left:16px;bottom:30px;}
+    }
+    .ql-toolbar.ql-snow+.ql-container.ql-snow.ql-disabled{
+        background-color: #eee;
+    }
 </style>

@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-22 2:54:24
+ * Modified By: 2017-12-24 2:56:11
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -14,15 +14,15 @@
 
 <template>
     <b-container class="topic">
-        <v-header></v-header>
         <remote src="/static/plug/social-share.js/dist/js/social-share.min.js"></remote>
+        <v-header></v-header>
         <b-row>
             <b-col style="padding-left:0;padding-right:0px;"><b-breadcrumb :items="items"></b-breadcrumb></b-col>
         </b-row>
         <b-row>
-            <b-col lg="9" md="9" sm="12" class="">
+            <b-col lg="9" md="9" sm="12" class="p-0">
                 <div class="article">
-                     <h1>Python 变量类型</h1>
+                    <h1>Python 变量类型</h1>
                     <div class="tools">
                         <ul class="icons">
                             <li>
@@ -59,10 +59,14 @@
                     <nav aria-label="Page navigation" class="pager">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <b-link :href="'/'" class="page-link">上一篇:Python 简介</b-link>
+                                <b-link :href="'/'" class="page-link page-short">
+                                    上一篇:Python 简介
+                                </b-link>
                             </li>
                             <li>
-                                <b-link :href="'/'" class="page-link">下一篇:Python 中文编码</b-link>
+                                <b-link :href="'/'" class="page-link page-short">
+                                    下一篇:Python 中文编码
+                                </b-link>
                             </li>
                         </ul>
                     </nav>
@@ -75,8 +79,13 @@
                         @imageAdded="handleImageAdded" 
                         v-model="htmlForEditor"
                         :editorToolbar="customToolbar" 
-                        :disabled="disabled">
+                        :disabled="disabled"
+                        :syntax="true">
                     </vue-editor>
+                    <div class="float-right mt-2">
+                        <button class="btn btn-primary send" 
+                            @click="send">发表评论[Ctrl+S]</button>
+                    </div>
                 </section>
             </b-col>
             <b-col lg="3" md="3" sm="12">
@@ -93,7 +102,9 @@
     import vHeader from '../components/header.vue'
     import vFooter from '../components/footer.vue'
     import vList from '../components/list.vue'
-    import { VueEditor } from 'vue2-editor'
+    import {VueEditor} from 'vue2-editor'
+    import Bus from '../store/bus'
+    
     export default {
         data() {
             return {
@@ -101,10 +112,7 @@
                 htmlForEditor:'',
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
-                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
                     ['image','blockquote', 'code-block'],
-                    [{ 'script': 'sub'}, { 'script': 'super' }],
-                    ['preview']
                 ],
                 items:[{
                     text: `首页`,
@@ -146,9 +154,7 @@
         },
         methods: {
             handleImageAdded: function(file, Editor, cursorLocation) {
-                // An example of using FormData
-                // NOTE: Your key could be different such as:
-                // formData.append('file', file)
+                Bus.$emit('load_text','图片正在上传中,可能需要一些时间...');
                 var formData = new FormData();
                 formData.append('image', file);
                 this.axios({
@@ -157,12 +163,18 @@
                     data: formData
                 })
                 .then((result) => {
-                    let url = result.data.url // Get url from response
+                    let url = result.data.url;
                     Editor.insertEmbed(cursorLocation, 'image', url);
                 })
                 .catch((err) => {
                     console.log(err);
                 })
+            },
+            send(){
+                let quill = this.$refs.editor.quill;
+                let delta = quill.getContents(),
+                deltaHtml = quill.container.firstChild.innerHTML;
+                console.log(deltaHtml)
             }
         },
         mounted(){
@@ -173,26 +185,21 @@
                     // title:'',
                     // description:'',
                     // image:'',
-                    sites:['qzone', 'qq', 'weibo','wechat','douban'],
+                    sites:['qzone', 'qq', 'weibo','douban'],
                     //disabled:['google', 'facebook', 'twitter'],
                     //wechatQrcodeHelper:''
                 });
-                
             }
-            let quill = this.$refs.editor.quill;
+           
+            let quill = this.$refs.editor.quill,
+                btnPreview = document.querySelector('.ql-preview');
+                //quill.options.modules.syntax=true;
             quill.keyboard.addBinding({
-                key: 'B',
-                shortKey: true
+                key:'s',
+                ctrlKey: true
             }, function(range, context) {
-                this.quill.formatText(range, 'bold', true);
-            });
-            let btnPreview = document.querySelector('.ql-preview');
-            btnPreview.classList.add('iconfont');
-            btnPreview.classList.add('icon-preview');
-            btnPreview.addEventListener('click',(e)=>{
                 let delta = quill.getContents(),
                 deltaHTML = quill.container.firstChild.innerHTML;
-                //console.log(delta,deltaHTML);
             });
         }
     }
@@ -211,6 +218,8 @@
             background-color: rgb(248, 248, 248);
             box-shadow:2px -2px 5px #eee;
             padding-bottom:20px;
+            padding-left:10px;
+            padding-right:10px;
             position: relative;
             height:auto;
             overflow: hidden;
@@ -247,13 +256,28 @@
                 }
             }
             .pager{
-                position: absolute;
-                bottom:10px;
-                left:25%;
+                .pagination{
+                    li{
+                        a{
+                            background-color:#f8f8f8;
+                        }
+                    }
+                }
             }
         }
         .discuss{
             margin-top:20px;
+            padding-bottom:20px;
+            div{
+                button{
+                    background-color:nth($baseColor,3);
+                    border-color:nth($baseColor,3);
+                    cursor: pointer;
+                    &:hover{
+                        opacity:.8;
+                    }
+                }
+            }
         }
-    }
+    }  
 </style>
