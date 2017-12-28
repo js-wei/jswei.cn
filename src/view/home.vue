@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-28 12:37:23
+ * Modified By: 2017-12-28 11:19:22
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -146,6 +146,10 @@
                    text-indent:2em;
                    font-size:1.5rem;
                    line-height:2rem; 
+                   &.small{
+                       right:5.4%;
+                       bottom:20px;
+                   }
                 }
                 a{
                   position:absolute;

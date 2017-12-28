@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-28 12:36:54
+ * Modified By: 2017-12-28 11:16:50
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -51,7 +51,7 @@ export default {
       this.visible =result.loading;
       this.loading_text =result.text;
     });
-    Bus.$on('load_text',result=>{
+    bus.$on('load_text',result=>{
       this.loading.text=result;
     });
     var bar = new ProgressBar.Line('.progress-bar',{

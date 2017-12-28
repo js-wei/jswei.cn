@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
