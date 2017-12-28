@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-27 11:13:24
+ * Modified By: 2017-12-28 5:53:54
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -21,14 +21,46 @@
             </b-navbar-brand>
             <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_collapse">
-                <b-navbar-nav class="mr-auto">
+                <!-- <b-navbar-nav class="mr-auto">
                     <b-nav-item :to="'/'">首页</b-nav-item>
                     <b-nav-item-dropdown text="网站开发">
                         <b-dropdown-item href="#">HTML</b-dropdown-item>
                         <b-dropdown-item href="#">CSS</b-dropdown-item>
                         <b-dropdown-item href="#">JAVASCRIPT</b-dropdown-item>
                     </b-nav-item-dropdown>
-                </b-navbar-nav>
+                </b-navbar-nav> -->
+                
+
+<ul class="navbar-nav mr-auto"> 
+ <li class="nav-item comment58dcbf738a8c4d42a673eeab">
+  <a href="/" class="nav-link">html教程</a>
+ </li>
+
+ <li class="nav-item comment58dcbf888a8c4d42a673eead dropdown" id="navbarDropdown_58e0a18fbddeaa35557f834a">
+  <a href="/" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">css教程</a>
+   <div class="dropdown-menu dropdown-menu-left comment58e0a18fbddeaa35557f834a" aria-labelledby="navbarDropdown_58e0a18fbddeaa35557f834a">
+              <a href="/category/_css">css</a>
+        <a href="/category/css3" class="dropdown-item">css3</a></div>
+</li>
+
+ <li class="nav-item comment58dcbf9e8a8c4d42a673eeaf">
+  <a href="/" class="nav-link">node.js</a>
+ </li>
+
+ <li class="nav-item comment58dcbfb78a8c4d42a673eeb1 dropdown" id="navbarDropdown_58dcbfcb8a8c4d42a673eeb3">
+  <a href="/" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">asp.net</a>
+   <div class="dropdown-menu dropdown-menu-left comment58dcbfcb8a8c4d42a673eeb3" aria-labelledby="navbarDropdown_58dcbfcb8a8c4d42a673eeb3">
+              <a href="/category/aspnetform">asp.net form</a>
+        <a href="/category/aspnetwebpages" class="dropdown-item">asp.net webpages</a><a href="/category/aspnetmvc" class="dropdown-item">asp.net mvc</a></div>
+</li>
+
+ <li class="nav-item comment590af67f5abb2c15e0d1e287 dropdown" id="navbarDropdown_590bf5695abb2c15e0d1e28f">
+  <a href="/" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python</a>
+   <div class="dropdown-menu dropdown-menu-left comment590bf5695abb2c15e0d1e28f" aria-labelledby="navbarDropdown_590bf5695abb2c15e0d1e28f">
+              <a href="/category/pythonJiChu">python 基础</a>
+        <a href="/category/djangoKuangJia" class="dropdown-item">django 框架</a></div>
+</li>
+</ul>
                 <b-navbar-nav>
                     <b-nav-form action="javascript:;">
                         <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="搜索"/>
@@ -60,6 +92,8 @@
 
 <script>
     import vQrcode from '../components/qrcode.vue'
+    import $ from 'jquery'
+    
     export default {
         data() {
             return {
@@ -83,6 +117,13 @@
         },
         components: {
             vQrcode
+        },
+        mounted(){
+            $('a[data-toggle="dropdown"]').hover(function(){
+                $(this).next().show();
+            },function(){
+                $(this).next().hide();
+            });
         }
     }
 </script>

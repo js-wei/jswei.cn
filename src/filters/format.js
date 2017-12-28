@@ -80,3 +80,10 @@ export const is_phone_safe=(tel)=>{
 	}
 	return '';
 }
+
+export const replace_string=(str,reg='')=>{
+	if(reg){
+		
+	}
+	//'江苏省苏州市'.replace(/['省','市']/g,'')
+}
