@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2018-01-05 2:26:22
+ * Modified By: 2018-01-05 4:30:43
  * -----
  * Copyright (c) 2018 魏巍
  * ------
@@ -24,7 +24,7 @@
                 :disabled="disabled"
                 placeholder="我会虚心接受您的建议">
             </vue-editor>
-            <div class="float-left pt-2 pl-3 text-danger">
+            <div class="float-left pt-2 pl-0 text-danger">
                 *评论字数请控制在250字符以内
             </div>
             <b-button variant="danger" class="mt-2 p-2 float-right submit"
@@ -85,7 +85,7 @@
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                    ['blockquote', 'code-block'],
+                    ['blockquote', 'code-block','image'],
                 ],
             }
         },
@@ -95,25 +95,16 @@
         methods: {
             handleImageAdded: function(file, Editor, cursorLocation) {
                 var formData = new FormData();
-                formData.append('image', file);
-                this.axios({
-                    url: 'https://fakeapi.yoursite.com/images',
-                    method: 'POST',
-                    data: formData
-                })
-                .then((result) => {
-                    let url = result.data.url;
-                    Editor.insertEmbed(cursorLocation, 'image', url);
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
+                formData.append('image', file)
             },
             submit(){
                 if(!this.has_content){
-                    this.$store.commit('LOADING_SHOW');
+                    this.$store.dispatch('showLoading',{show:true,text:'请上传评论内容 (: '});
+                    setTimeout(()=>{
+                        this.$store.dispatch('hideLoading');
+                    },3e3);
                 }
-            }
+            },
         },
         mounted(){
             let quill = this.$refs.editor.quill;

@@ -54,12 +54,13 @@ Object.keys(Tools).forEach(key =>{
 
 axios.defaults.baseURL = 'http://www.n.jswei.cn/';
 axios.interceptors.request.use(function (config) {
+  store.dispatch('showLoading');
   return config;
 }, function (error) {
   return Promise.reject(error);
 });
 axios.interceptors.response.use(function (response) {
- 
+  store.dispatch('hidenLoading');
   return response;
 }, function (error) {
   return Promise.reject(error);

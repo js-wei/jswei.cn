@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2018-01-05 2:33:36
+ * Modified By: 2018-01-05 3:19:36
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -16,7 +16,9 @@
     <b-container class="topic">
         <v-header></v-header>
         <b-row>
-            <b-col style="padding-left:0;padding-right:0px;"><b-breadcrumb :items="items"></b-breadcrumb></b-col>
+            <b-col class="p-0">
+                <b-breadcrumb :items="items"></b-breadcrumb>
+            </b-col>
         </b-row>
         <b-row>
             <b-col lg="9" md="12" sm="12" class="p-0">

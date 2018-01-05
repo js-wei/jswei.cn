@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2018-01-05 1:14:57
+ * Modified By: 2018-01-05 3:39:42
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -44,8 +44,7 @@ export default {
   },
   data () {
     return {
-     visible:false,
-     loading_text:'',
+     
     }
   },
   components: {
