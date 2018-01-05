@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-25 9:22:29
+ * Modified By: 2018-01-05 1:32:29
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -25,7 +25,7 @@
       </div>
 
       <div class="loading pic" :style="{ height: originDivHeight+'px', width: originDivHeight +'px'}" v-else>
-          <img src="http://www.daiwei.org/index/images/logo/dw.png"  alt="loading" >
+          <!-- <img src="http://www.daiwei.org/index/images/logo/dw.png"  alt="loading" > -->
       </div>
       <p class="loading-discription txt-textOneRow" :style="{color: textColor}">{{text}}</p></div>
   </div>

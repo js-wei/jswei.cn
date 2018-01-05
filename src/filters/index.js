@@ -8,11 +8,18 @@
  */
 
 
-import {is_formart_date,sub_string,is_default,is_phone_safe} from './format';
+import {
+	is_formart_date,
+	sub_string,
+	is_default,
+	is_phone_safe,
+	time_ago
+} from './format';
 
 export default {
 	is_formart_date,
 	sub_string,
 	is_default,
-	is_phone_safe
+	is_phone_safe,
+	time_ago
 };

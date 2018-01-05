@@ -4,7 +4,7 @@
  * Author: 魏巍
  * -----
  * Last Modified: 魏巍
- * Modified By: 2017-12-28 11:16:50
+ * Modified By: 2018-01-05 1:14:57
  * -----
  * Copyright (c) 2017 魏巍
  * ------
@@ -16,13 +16,13 @@
   <div id="app">
       <div class="progress-bar"></div>
       <router-view></router-view>
-      <v-loding :visible="visible" :text="loading_text"></v-loding>
+      <v-loding :visible="loading.show" :text="loading.text"></v-loding>
   </div>
 </template>
 <script>
-import bus from './store/bus'
 import vLoding from './components/vue-alert-loading.vue'
 import ProgressBar  from 'progressbar.js'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'app',
@@ -37,6 +37,11 @@ export default {
           content: '这是使用ThinkPHP写的,用于介绍asp.net的博客,Vue版本'
       }]
   },
+  computed: {
+    ...mapGetters([
+      'loading'
+    ])
+  },
   data () {
     return {
      visible:false,
@@ -47,13 +52,6 @@ export default {
     vLoding,
   },
   mounted(){
-    bus.$on('loading',result=>{
-      this.visible =result.loading;
-      this.loading_text =result.text;
-    });
-    bus.$on('load_text',result=>{
-      this.loading.text=result;
-    });
     var bar = new ProgressBar.Line('.progress-bar',{
       strokeWidth:1,
       easing: 'easeInOut',
@@ -106,6 +104,7 @@ export default {
       font-size:1.8rem;
       .nav-link{
         color:#fff;
+        text-transform: uppercase;
         &:hover{
           opacity:.5;
         }
@@ -124,11 +123,12 @@ export default {
   }
   .dropdown-item {
     color:#fff;
-    padding:0 0 0 10px;
+    padding:0  10px;
     line-height:35px;
     height:35px;
     text-decoration: none;
     font-size:1.8rem;
+    text-transform: uppercase;
     //border-bottom:1px solid #f7f5f5;
     &:focus,&:hover{
       color:#fff;
@@ -143,6 +143,7 @@ export default {
       border-bottom:none;
     }
   }
+  
   //page reset
   .page-link {
     position: relative;

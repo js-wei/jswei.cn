@@ -15,12 +15,13 @@ import _ from 'lodash'
 import 'vue-awesome-for-toolbar/icons'
 import Icon from 'vue-awesome-for-toolbar/components/Icon.vue'
 Vue.component('icon', Icon)
-//store
-import bus from './store/bus'
+
 //tools
 import Tools from './tools/index'
 import MetaInfo from 'vue-meta-info'
 import Share from 'vue-social-share'
+//vuex
+import store from './store'
 
 Vue.use(MetaInfo)
 Vue.use(VueAxios, axios)
@@ -53,13 +54,12 @@ Object.keys(Tools).forEach(key =>{
 
 axios.defaults.baseURL = 'http://www.n.jswei.cn/';
 axios.interceptors.request.use(function (config) {
-  bus.$emit('loading',{loading:true,text:'正在努力加载中'});
   return config;
 }, function (error) {
   return Promise.reject(error);
 });
-axios.interceptors.response.use(function (response) { 
-  bus.$emit('loading',{loading:true});
+axios.interceptors.response.use(function (response) {
+ 
   return response;
 }, function (error) {
   return Promise.reject(error);
@@ -75,5 +75,6 @@ let router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
